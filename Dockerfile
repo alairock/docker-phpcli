@@ -1,10 +1,10 @@
-FROM debian:jessie
+FROM alpine:latest
 
-MAINTAINER "Dylan Lindgren" <dylan.lindgren@gmail.com>
+MAINTAINER Skyler Lewis <sblnog@gmail.com>
 
-# Install PHP-CLI using APT
-RUN apt-get update -y && \
-    apt-get install php5-cli -y
+# Install PHP-CLI using apk
+RUN apk --update add wget curl git php5-cli
+#php5 php5-curl php5-openssl php5-pdo php5-json php5-phar php5-dom php5-zip
 
 # Container entry point is PHP, default command is --help
 ENTRYPOINT ["php"]
